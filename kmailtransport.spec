@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : kmailtransport
-Version  : 19.04.0
-Release  : 8
-URL      : https://download.kde.org/stable/applications/19.04.0/src/kmailtransport-19.04.0.tar.xz
-Source0  : https://download.kde.org/stable/applications/19.04.0/src/kmailtransport-19.04.0.tar.xz
-Source99 : https://download.kde.org/stable/applications/19.04.0/src/kmailtransport-19.04.0.tar.xz.sig
+Version  : 19.04.1
+Release  : 9
+URL      : https://download.kde.org/stable/applications/19.04.1/src/kmailtransport-19.04.1.tar.xz
+Source0  : https://download.kde.org/stable/applications/19.04.1/src/kmailtransport-19.04.1.tar.xz
+Source99 : https://download.kde.org/stable/applications/19.04.1/src/kmailtransport-19.04.1.tar.xz.sig
 Summary  : Mail Transport Service
 Group    : Development/Tools
 License  : LGPL-2.1
@@ -46,6 +46,7 @@ Requires: kmailtransport-lib = %{version}-%{release}
 Requires: kmailtransport-data = %{version}-%{release}
 Provides: kmailtransport-devel = %{version}-%{release}
 Requires: kmailtransport = %{version}-%{release}
+Requires: kmailtransport = %{version}-%{release}
 
 %description dev
 dev components for the kmailtransport package.
@@ -78,14 +79,14 @@ locales components for the kmailtransport package.
 
 
 %prep
-%setup -q -n kmailtransport-19.04.0
+%setup -q -n kmailtransport-19.04.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1557022822
+export SOURCE_DATE_EPOCH=1557496386
 mkdir -p clr-build
 pushd clr-build
 export AR=gcc-ar
@@ -100,7 +101,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1557022822
+export SOURCE_DATE_EPOCH=1557496386
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kmailtransport
 cp COPYING.LIB %{buildroot}/usr/share/package-licenses/kmailtransport/COPYING.LIB
@@ -177,9 +178,9 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5MailTransport.so.5
-/usr/lib64/libKF5MailTransport.so.5.11.0
+/usr/lib64/libKF5MailTransport.so.5.11.1
 /usr/lib64/libKF5MailTransportAkonadi.so.5
-/usr/lib64/libKF5MailTransportAkonadi.so.5.11.0
+/usr/lib64/libKF5MailTransportAkonadi.so.5.11.1
 /usr/lib64/qt5/plugins/kcm_mailtransport.so
 /usr/lib64/qt5/plugins/mailtransport/mailtransport_akonadiplugin.so
 /usr/lib64/qt5/plugins/mailtransport/mailtransport_smtpplugin.so
