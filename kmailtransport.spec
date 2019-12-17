@@ -6,7 +6,7 @@
 #
 Name     : kmailtransport
 Version  : 19.12.0
-Release  : 17
+Release  : 18
 URL      : https://download.kde.org/stable/release-service/19.12.0/src/kmailtransport-19.12.0.tar.xz
 Source0  : https://download.kde.org/stable/release-service/19.12.0/src/kmailtransport-19.12.0.tar.xz
 Source1  : https://download.kde.org/stable/release-service/19.12.0/src/kmailtransport-19.12.0.tar.xz.sig
@@ -22,7 +22,7 @@ BuildRequires : akonadi-mime-dev
 BuildRequires : boost-dev
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
-BuildRequires : kcalcore-dev
+BuildRequires : kcalendarcore-dev
 BuildRequires : kcontacts-dev
 BuildRequires : kmime-dev
 BuildRequires : ksmtp-dev
@@ -45,7 +45,6 @@ Group: Development
 Requires: kmailtransport-lib = %{version}-%{release}
 Requires: kmailtransport-data = %{version}-%{release}
 Provides: kmailtransport-devel = %{version}-%{release}
-Requires: kmailtransport = %{version}-%{release}
 Requires: kmailtransport = %{version}-%{release}
 
 %description dev
@@ -87,10 +86,9 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1576598159
+export SOURCE_DATE_EPOCH=1576625338
 mkdir -p clr-build
 pushd clr-build
-# -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -104,7 +102,7 @@ make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1576598159
+export SOURCE_DATE_EPOCH=1576625338
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kmailtransport
 cp %{_builddir}/kmailtransport-19.12.0/COPYING.LIB %{buildroot}/usr/share/package-licenses/kmailtransport/9a1929f4700d2407c70b507b3b2aaf6226a9543c
