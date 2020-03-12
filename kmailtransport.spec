@@ -6,7 +6,7 @@
 #
 Name     : kmailtransport
 Version  : 19.12.3
-Release  : 21
+Release  : 22
 URL      : https://download.kde.org/stable/release-service/19.12.3/src/kmailtransport-19.12.3.tar.xz
 Source0  : https://download.kde.org/stable/release-service/19.12.3/src/kmailtransport-19.12.3.tar.xz
 Source1  : https://download.kde.org/stable/release-service/19.12.3/src/kmailtransport-19.12.3.tar.xz.sig
