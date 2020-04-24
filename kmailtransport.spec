@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : kmailtransport
-Version  : 19.12.3
-Release  : 22
-URL      : https://download.kde.org/stable/release-service/19.12.3/src/kmailtransport-19.12.3.tar.xz
-Source0  : https://download.kde.org/stable/release-service/19.12.3/src/kmailtransport-19.12.3.tar.xz
-Source1  : https://download.kde.org/stable/release-service/19.12.3/src/kmailtransport-19.12.3.tar.xz.sig
+Version  : 20.04.0
+Release  : 23
+URL      : https://download.kde.org/stable/release-service/20.04.0/src/kmailtransport-20.04.0.tar.xz
+Source0  : https://download.kde.org/stable/release-service/20.04.0/src/kmailtransport-20.04.0.tar.xz
+Source1  : https://download.kde.org/stable/release-service/20.04.0/src/kmailtransport-20.04.0.tar.xz.sig
 Summary  : Mail Transport Service
 Group    : Development/Tools
 License  : LGPL-2.1
@@ -46,7 +46,6 @@ Requires: kmailtransport-lib = %{version}-%{release}
 Requires: kmailtransport-data = %{version}-%{release}
 Provides: kmailtransport-devel = %{version}-%{release}
 Requires: kmailtransport = %{version}-%{release}
-Requires: kmailtransport = %{version}-%{release}
 
 %description dev
 dev components for the kmailtransport package.
@@ -79,35 +78,34 @@ locales components for the kmailtransport package.
 
 
 %prep
-%setup -q -n kmailtransport-19.12.3
-cd %{_builddir}/kmailtransport-19.12.3
+%setup -q -n kmailtransport-20.04.0
+cd %{_builddir}/kmailtransport-20.04.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1583534046
+export SOURCE_DATE_EPOCH=1587690775
 mkdir -p clr-build
 pushd clr-build
-# -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
 export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %cmake ..
 make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1583534046
+export SOURCE_DATE_EPOCH=1587690775
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kmailtransport
-cp %{_builddir}/kmailtransport-19.12.3/COPYING.LIB %{buildroot}/usr/share/package-licenses/kmailtransport/9a1929f4700d2407c70b507b3b2aaf6226a9543c
+cp %{_builddir}/kmailtransport-20.04.0/COPYING.LIB %{buildroot}/usr/share/package-licenses/kmailtransport/9a1929f4700d2407c70b507b3b2aaf6226a9543c
 pushd clr-build
 %make_install
 popd
@@ -181,9 +179,9 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5MailTransport.so.5
-/usr/lib64/libKF5MailTransport.so.5.13.3
+/usr/lib64/libKF5MailTransport.so.5.14.0
 /usr/lib64/libKF5MailTransportAkonadi.so.5
-/usr/lib64/libKF5MailTransportAkonadi.so.5.13.3
+/usr/lib64/libKF5MailTransportAkonadi.so.5.14.0
 /usr/lib64/qt5/plugins/kcm_mailtransport.so
 /usr/lib64/qt5/plugins/mailtransport/mailtransport_akonadiplugin.so
 /usr/lib64/qt5/plugins/mailtransport/mailtransport_smtpplugin.so
