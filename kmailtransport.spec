@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : kmailtransport
-Version  : 20.08.3
-Release  : 28
-URL      : https://download.kde.org/stable/release-service/20.08.3/src/kmailtransport-20.08.3.tar.xz
-Source0  : https://download.kde.org/stable/release-service/20.08.3/src/kmailtransport-20.08.3.tar.xz
-Source1  : https://download.kde.org/stable/release-service/20.08.3/src/kmailtransport-20.08.3.tar.xz.sig
+Version  : 20.12.0
+Release  : 29
+URL      : https://download.kde.org/stable/release-service/20.12.0/src/kmailtransport-20.12.0.tar.xz
+Source0  : https://download.kde.org/stable/release-service/20.12.0/src/kmailtransport-20.12.0.tar.xz
+Source1  : https://download.kde.org/stable/release-service/20.12.0/src/kmailtransport-20.12.0.tar.xz.sig
 Summary  : Mail Transport Service
 Group    : Development/Tools
 License  : LGPL-2.0 LGPL-2.1
@@ -31,6 +31,7 @@ BuildRequires : kdbusaddons-dev
 BuildRequires : ki18n-dev
 BuildRequires : kio-dev
 BuildRequires : kmime-dev
+BuildRequires : kservice-dev
 BuildRequires : ksmtp-dev
 BuildRequires : ktextwidgets-dev
 BuildRequires : kwallet-dev
@@ -87,15 +88,15 @@ locales components for the kmailtransport package.
 
 
 %prep
-%setup -q -n kmailtransport-20.08.3
-cd %{_builddir}/kmailtransport-20.08.3
+%setup -q -n kmailtransport-20.12.0
+cd %{_builddir}/kmailtransport-20.12.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1604612947
+export SOURCE_DATE_EPOCH=1607913444
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -111,11 +112,11 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1604612947
+export SOURCE_DATE_EPOCH=1607913444
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kmailtransport
-cp %{_builddir}/kmailtransport-20.08.3/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kmailtransport/20079e8f79713dce80ab09774505773c926afa2a
-cp %{_builddir}/kmailtransport-20.08.3/LICENSES/LGPL-2.1-or-later.txt %{buildroot}/usr/share/package-licenses/kmailtransport/6f1f675aa5f6a2bbaa573b8343044b166be28399
+cp %{_builddir}/kmailtransport-20.12.0/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kmailtransport/20079e8f79713dce80ab09774505773c926afa2a
+cp %{_builddir}/kmailtransport-20.12.0/LICENSES/LGPL-2.1-or-later.txt %{buildroot}/usr/share/package-licenses/kmailtransport/6f1f675aa5f6a2bbaa573b8343044b166be28399
 pushd clr-build
 %make_install
 popd
@@ -189,9 +190,9 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5MailTransport.so.5
-/usr/lib64/libKF5MailTransport.so.5.15.3
+/usr/lib64/libKF5MailTransport.so.5.16.0
 /usr/lib64/libKF5MailTransportAkonadi.so.5
-/usr/lib64/libKF5MailTransportAkonadi.so.5.15.3
+/usr/lib64/libKF5MailTransportAkonadi.so.5.16.0
 /usr/lib64/qt5/plugins/kcm_mailtransport.so
 /usr/lib64/qt5/plugins/mailtransport/mailtransport_akonadiplugin.so
 /usr/lib64/qt5/plugins/mailtransport/mailtransport_smtpplugin.so
