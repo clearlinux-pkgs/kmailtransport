@@ -1,5 +1,6 @@
 libKF5AkonadiCore.so.5
 libKF5AkonadiMime.so.5
+libKF5AkonadiWidgets.so.5
 libKF5Completion.so.5
 libKF5ConfigCore.so.5
 libKF5ConfigGui.so.5
