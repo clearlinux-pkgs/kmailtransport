@@ -4,7 +4,7 @@
 #
 Name     : kmailtransport
 Version  : 21.12.0
-Release  : 38
+Release  : 39
 URL      : https://download.kde.org/stable/release-service/21.12.0/src/kmailtransport-21.12.0.tar.xz
 Source0  : https://download.kde.org/stable/release-service/21.12.0/src/kmailtransport-21.12.0.tar.xz
 Summary  : Mail Transport Service
