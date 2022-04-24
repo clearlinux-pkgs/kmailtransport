@@ -1,2 +1,2 @@
-21.12.3
-libsecret-dev
+22.04.0
+pkgconfig(libsecret-1)

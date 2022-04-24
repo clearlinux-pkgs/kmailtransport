@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : kmailtransport
-Version  : 21.12.3
-Release  : 42
-URL      : https://download.kde.org/stable/release-service/21.12.3/src/kmailtransport-21.12.3.tar.xz
-Source0  : https://download.kde.org/stable/release-service/21.12.3/src/kmailtransport-21.12.3.tar.xz
-Source1  : https://download.kde.org/stable/release-service/21.12.3/src/kmailtransport-21.12.3.tar.xz.sig
+Version  : 22.04.0
+Release  : 43
+URL      : https://download.kde.org/stable/release-service/22.04.0/src/kmailtransport-22.04.0.tar.xz
+Source0  : https://download.kde.org/stable/release-service/22.04.0/src/kmailtransport-22.04.0.tar.xz
+Source1  : https://download.kde.org/stable/release-service/22.04.0/src/kmailtransport-22.04.0.tar.xz.sig
 Summary  : Mail Transport Service
 Group    : Development/Tools
 License  : BSD-3-Clause CC0-1.0 LGPL-2.0 LGPL-2.1
@@ -35,9 +35,7 @@ BuildRequires : ksmtp-dev
 BuildRequires : ktextwidgets-dev
 BuildRequires : kwallet-dev
 BuildRequires : libkgapi-dev
-BuildRequires : libsecret-dev
-BuildRequires : qtbase-dev
-BuildRequires : qtkeychain-dev
+BuildRequires : pkgconfig(libsecret-1)
 
 %description
 No detailed description available
@@ -89,15 +87,15 @@ locales components for the kmailtransport package.
 
 
 %prep
-%setup -q -n kmailtransport-21.12.3
-cd %{_builddir}/kmailtransport-21.12.3
+%setup -q -n kmailtransport-22.04.0
+cd %{_builddir}/kmailtransport-22.04.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1646545837
+export SOURCE_DATE_EPOCH=1650836325
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -113,14 +111,15 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1646545837
+export SOURCE_DATE_EPOCH=1650836325
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kmailtransport
-cp %{_builddir}/kmailtransport-21.12.3/CMakePresets.json.license %{buildroot}/usr/share/package-licenses/kmailtransport/29fb05b49e12a380545499938c4879440bd8851e
-cp %{_builddir}/kmailtransport-21.12.3/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/kmailtransport/8287b608d3fa40ef401339fd907ca1260c964123
-cp %{_builddir}/kmailtransport-21.12.3/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kmailtransport/20079e8f79713dce80ab09774505773c926afa2a
-cp %{_builddir}/kmailtransport-21.12.3/LICENSES/LGPL-2.1-or-later.txt %{buildroot}/usr/share/package-licenses/kmailtransport/6f1f675aa5f6a2bbaa573b8343044b166be28399
-cp %{_builddir}/kmailtransport-21.12.3/metainfo.yaml.license %{buildroot}/usr/share/package-licenses/kmailtransport/7ff5a7dd2c915b2b34329c892e06917c5f82f3a4
+cp %{_builddir}/kmailtransport-22.04.0/CMakePresets.json.license %{buildroot}/usr/share/package-licenses/kmailtransport/c085897bc39e05746ffd2d889a6e84ff1b7ae2d9
+cp %{_builddir}/kmailtransport-22.04.0/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/kmailtransport/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c
+cp %{_builddir}/kmailtransport-22.04.0/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/kmailtransport/8287b608d3fa40ef401339fd907ca1260c964123
+cp %{_builddir}/kmailtransport-22.04.0/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kmailtransport/20079e8f79713dce80ab09774505773c926afa2a
+cp %{_builddir}/kmailtransport-22.04.0/LICENSES/LGPL-2.1-or-later.txt %{buildroot}/usr/share/package-licenses/kmailtransport/6f1f675aa5f6a2bbaa573b8343044b166be28399
+cp %{_builddir}/kmailtransport-22.04.0/metainfo.yaml.license %{buildroot}/usr/share/package-licenses/kmailtransport/7ff5a7dd2c915b2b34329c892e06917c5f82f3a4
 pushd clr-build
 %make_install
 popd
@@ -138,46 +137,46 @@ popd
 
 %files dev
 %defattr(-,root,root,-)
-/usr/include/KF5/MailTransport/PrecommandJob
-/usr/include/KF5/MailTransport/ServerTest
-/usr/include/KF5/MailTransport/Transport
-/usr/include/KF5/MailTransport/TransportAbstractPlugin
-/usr/include/KF5/MailTransport/TransportComboBox
-/usr/include/KF5/MailTransport/TransportConfigWidget
-/usr/include/KF5/MailTransport/TransportJob
-/usr/include/KF5/MailTransport/TransportManagementWidget
-/usr/include/KF5/MailTransport/TransportManager
-/usr/include/KF5/MailTransport/TransportType
-/usr/include/KF5/MailTransportAkonadi/DispatchModeAttribute
-/usr/include/KF5/MailTransportAkonadi/DispatcherInterface
-/usr/include/KF5/MailTransportAkonadi/ErrorAttribute
-/usr/include/KF5/MailTransportAkonadi/MessageQueueJob
-/usr/include/KF5/MailTransportAkonadi/SentActionAttribute
-/usr/include/KF5/MailTransportAkonadi/SentBehaviourAttribute
-/usr/include/KF5/MailTransportAkonadi/TransportAttribute
-/usr/include/KF5/mailtransport/mailtransport_export.h
-/usr/include/KF5/mailtransport/precommandjob.h
-/usr/include/KF5/mailtransport/private/transportconfigwidget_p.h
-/usr/include/KF5/mailtransport/servertest.h
-/usr/include/KF5/mailtransport/transport.h
-/usr/include/KF5/mailtransport/transportabstractplugin.h
-/usr/include/KF5/mailtransport/transportbase.h
-/usr/include/KF5/mailtransport/transportcombobox.h
-/usr/include/KF5/mailtransport/transportconfigwidget.h
-/usr/include/KF5/mailtransport/transportjob.h
-/usr/include/KF5/mailtransport/transportmanagementwidget.h
-/usr/include/KF5/mailtransport/transportmanager.h
-/usr/include/KF5/mailtransport/transporttype.h
-/usr/include/KF5/mailtransport_version.h
-/usr/include/KF5/mailtransportakonadi/dispatcherinterface.h
-/usr/include/KF5/mailtransportakonadi/dispatchmodeattribute.h
-/usr/include/KF5/mailtransportakonadi/errorattribute.h
-/usr/include/KF5/mailtransportakonadi/mailtransportakonadi_export.h
-/usr/include/KF5/mailtransportakonadi/messagequeuejob.h
-/usr/include/KF5/mailtransportakonadi/sentactionattribute.h
-/usr/include/KF5/mailtransportakonadi/sentbehaviourattribute.h
-/usr/include/KF5/mailtransportakonadi/transportattribute.h
-/usr/include/KF5/mailtransportakonadi_version.h
+/usr/include/KF5/MailTransport/MailTransport/PrecommandJob
+/usr/include/KF5/MailTransport/MailTransport/ServerTest
+/usr/include/KF5/MailTransport/MailTransport/Transport
+/usr/include/KF5/MailTransport/MailTransport/TransportAbstractPlugin
+/usr/include/KF5/MailTransport/MailTransport/TransportComboBox
+/usr/include/KF5/MailTransport/MailTransport/TransportConfigWidget
+/usr/include/KF5/MailTransport/MailTransport/TransportJob
+/usr/include/KF5/MailTransport/MailTransport/TransportManagementWidget
+/usr/include/KF5/MailTransport/MailTransport/TransportManager
+/usr/include/KF5/MailTransport/MailTransport/TransportType
+/usr/include/KF5/MailTransport/mailtransport/mailtransport_export.h
+/usr/include/KF5/MailTransport/mailtransport/precommandjob.h
+/usr/include/KF5/MailTransport/mailtransport/private/transportconfigwidget_p.h
+/usr/include/KF5/MailTransport/mailtransport/servertest.h
+/usr/include/KF5/MailTransport/mailtransport/transport.h
+/usr/include/KF5/MailTransport/mailtransport/transportabstractplugin.h
+/usr/include/KF5/MailTransport/mailtransport/transportbase.h
+/usr/include/KF5/MailTransport/mailtransport/transportcombobox.h
+/usr/include/KF5/MailTransport/mailtransport/transportconfigwidget.h
+/usr/include/KF5/MailTransport/mailtransport/transportjob.h
+/usr/include/KF5/MailTransport/mailtransport/transportmanagementwidget.h
+/usr/include/KF5/MailTransport/mailtransport/transportmanager.h
+/usr/include/KF5/MailTransport/mailtransport/transporttype.h
+/usr/include/KF5/MailTransport/mailtransport_version.h
+/usr/include/KF5/MailTransportAkonadi/MailTransportAkonadi/DispatchModeAttribute
+/usr/include/KF5/MailTransportAkonadi/MailTransportAkonadi/DispatcherInterface
+/usr/include/KF5/MailTransportAkonadi/MailTransportAkonadi/ErrorAttribute
+/usr/include/KF5/MailTransportAkonadi/MailTransportAkonadi/MessageQueueJob
+/usr/include/KF5/MailTransportAkonadi/MailTransportAkonadi/SentActionAttribute
+/usr/include/KF5/MailTransportAkonadi/MailTransportAkonadi/SentBehaviourAttribute
+/usr/include/KF5/MailTransportAkonadi/MailTransportAkonadi/TransportAttribute
+/usr/include/KF5/MailTransportAkonadi/mailtransportakonadi/dispatcherinterface.h
+/usr/include/KF5/MailTransportAkonadi/mailtransportakonadi/dispatchmodeattribute.h
+/usr/include/KF5/MailTransportAkonadi/mailtransportakonadi/errorattribute.h
+/usr/include/KF5/MailTransportAkonadi/mailtransportakonadi/mailtransportakonadi_export.h
+/usr/include/KF5/MailTransportAkonadi/mailtransportakonadi/messagequeuejob.h
+/usr/include/KF5/MailTransportAkonadi/mailtransportakonadi/sentactionattribute.h
+/usr/include/KF5/MailTransportAkonadi/mailtransportakonadi/sentbehaviourattribute.h
+/usr/include/KF5/MailTransportAkonadi/mailtransportakonadi/transportattribute.h
+/usr/include/KF5/MailTransportAkonadi/mailtransportakonadi_version.h
 /usr/lib64/cmake/KF5MailTransport/KF5MailTransportConfig.cmake
 /usr/lib64/cmake/KF5MailTransport/KF5MailTransportConfigVersion.cmake
 /usr/lib64/cmake/KF5MailTransport/KF5MailTransportTargets-relwithdebinfo.cmake
@@ -194,20 +193,21 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5MailTransport.so.5
-/usr/lib64/libKF5MailTransport.so.5.19.3
+/usr/lib64/libKF5MailTransport.so.5.20.0
 /usr/lib64/libKF5MailTransportAkonadi.so.5
-/usr/lib64/libKF5MailTransportAkonadi.so.5.19.3
+/usr/lib64/libKF5MailTransportAkonadi.so.5.20.0
 /usr/lib64/qt5/plugins/kcm_mailtransport.so
-/usr/lib64/qt5/plugins/mailtransport/mailtransport_akonadiplugin.so
-/usr/lib64/qt5/plugins/mailtransport/mailtransport_smtpplugin.so
+/usr/lib64/qt5/plugins/kf5/mailtransport/mailtransport_akonadiplugin.so
+/usr/lib64/qt5/plugins/kf5/mailtransport/mailtransport_smtpplugin.so
 
 %files license
 %defattr(0644,root,root,0755)
 /usr/share/package-licenses/kmailtransport/20079e8f79713dce80ab09774505773c926afa2a
-/usr/share/package-licenses/kmailtransport/29fb05b49e12a380545499938c4879440bd8851e
 /usr/share/package-licenses/kmailtransport/6f1f675aa5f6a2bbaa573b8343044b166be28399
 /usr/share/package-licenses/kmailtransport/7ff5a7dd2c915b2b34329c892e06917c5f82f3a4
 /usr/share/package-licenses/kmailtransport/8287b608d3fa40ef401339fd907ca1260c964123
+/usr/share/package-licenses/kmailtransport/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c
+/usr/share/package-licenses/kmailtransport/c085897bc39e05746ffd2d889a6e84ff1b7ae2d9
 
 %files locales -f libmailtransport5.lang
 %defattr(-,root,root,-)
