@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : kmailtransport
-Version  : 22.12.2
-Release  : 55
-URL      : https://download.kde.org/stable/release-service/22.12.2/src/kmailtransport-22.12.2.tar.xz
-Source0  : https://download.kde.org/stable/release-service/22.12.2/src/kmailtransport-22.12.2.tar.xz
-Source1  : https://download.kde.org/stable/release-service/22.12.2/src/kmailtransport-22.12.2.tar.xz.sig
+Version  : 22.12.3
+Release  : 56
+URL      : https://download.kde.org/stable/release-service/22.12.3/src/kmailtransport-22.12.3.tar.xz
+Source0  : https://download.kde.org/stable/release-service/22.12.3/src/kmailtransport-22.12.3.tar.xz
+Source1  : https://download.kde.org/stable/release-service/22.12.3/src/kmailtransport-22.12.3.tar.xz.sig
 Summary  : Mail Transport Service
 Group    : Development/Tools
 License  : BSD-3-Clause CC0-1.0 LGPL-2.0 LGPL-2.1
@@ -89,15 +89,15 @@ locales components for the kmailtransport package.
 
 
 %prep
-%setup -q -n kmailtransport-22.12.2
-cd %{_builddir}/kmailtransport-22.12.2
+%setup -q -n kmailtransport-22.12.3
+cd %{_builddir}/kmailtransport-22.12.3
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1676849644
+export SOURCE_DATE_EPOCH=1677796427
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -113,7 +113,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1676849644
+export SOURCE_DATE_EPOCH=1677796427
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kmailtransport
 cp %{_builddir}/kmailtransport-%{version}/CMakePresets.json.license %{buildroot}/usr/share/package-licenses/kmailtransport/c085897bc39e05746ffd2d889a6e84ff1b7ae2d9 || :
@@ -195,9 +195,9 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5MailTransport.so.5
-/usr/lib64/libKF5MailTransport.so.5.22.2
+/usr/lib64/libKF5MailTransport.so.5.22.3
 /usr/lib64/libKF5MailTransportAkonadi.so.5
-/usr/lib64/libKF5MailTransportAkonadi.so.5.22.2
+/usr/lib64/libKF5MailTransportAkonadi.so.5.22.3
 /usr/lib64/qt5/plugins/kcm_mailtransport.so
 /usr/lib64/qt5/plugins/pim5/mailtransport/mailtransport_akonadiplugin.so
 /usr/lib64/qt5/plugins/pim5/mailtransport/mailtransport_smtpplugin.so
