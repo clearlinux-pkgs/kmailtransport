@@ -6,11 +6,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : kmailtransport
-Version  : 23.04.3
-Release  : 61
-URL      : https://download.kde.org/stable/release-service/23.04.3/src/kmailtransport-23.04.3.tar.xz
-Source0  : https://download.kde.org/stable/release-service/23.04.3/src/kmailtransport-23.04.3.tar.xz
-Source1  : https://download.kde.org/stable/release-service/23.04.3/src/kmailtransport-23.04.3.tar.xz.sig
+Version  : 23.08.0
+Release  : 62
+URL      : https://download.kde.org/stable/release-service/23.08.0/src/kmailtransport-23.08.0.tar.xz
+Source0  : https://download.kde.org/stable/release-service/23.08.0/src/kmailtransport-23.08.0.tar.xz
+Source1  : https://download.kde.org/stable/release-service/23.08.0/src/kmailtransport-23.08.0.tar.xz.sig
 Summary  : Mail Transport Service
 Group    : Development/Tools
 License  : BSD-3-Clause CC0-1.0 LGPL-2.0 LGPL-2.1
@@ -83,15 +83,15 @@ locales components for the kmailtransport package.
 
 
 %prep
-%setup -q -n kmailtransport-23.04.3
-cd %{_builddir}/kmailtransport-23.04.3
+%setup -q -n kmailtransport-23.08.0
+cd %{_builddir}/kmailtransport-23.08.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1688872475
+export SOURCE_DATE_EPOCH=1693067144
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -124,7 +124,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1688872475
+export SOURCE_DATE_EPOCH=1693067144
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kmailtransport
 cp %{_builddir}/kmailtransport-%{version}/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/kmailtransport/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c || :
@@ -147,7 +147,6 @@ popd
 %files data
 %defattr(-,root,root,-)
 /usr/share/config.kcfg/mailtransport.kcfg
-/usr/share/kservices5/kcm_mailtransport.desktop
 /usr/share/qlogging-categories5/kmailtransport.categories
 /usr/share/qlogging-categories5/kmailtransport.renamecategories
 
@@ -177,56 +176,23 @@ popd
 /usr/include/KPim5/MailTransport/mailtransport/transportmanager.h
 /usr/include/KPim5/MailTransport/mailtransport/transporttype.h
 /usr/include/KPim5/MailTransport/mailtransport_version.h
-/usr/include/KPim5/MailTransportAkonadi/MailTransportAkonadi/DispatchModeAttribute
-/usr/include/KPim5/MailTransportAkonadi/MailTransportAkonadi/DispatcherInterface
-/usr/include/KPim5/MailTransportAkonadi/MailTransportAkonadi/ErrorAttribute
-/usr/include/KPim5/MailTransportAkonadi/MailTransportAkonadi/MessageQueueJob
-/usr/include/KPim5/MailTransportAkonadi/MailTransportAkonadi/SentActionAttribute
-/usr/include/KPim5/MailTransportAkonadi/MailTransportAkonadi/SentBehaviourAttribute
-/usr/include/KPim5/MailTransportAkonadi/MailTransportAkonadi/TransportAttribute
-/usr/include/KPim5/MailTransportAkonadi/mailtransportakonadi/dispatcherinterface.h
-/usr/include/KPim5/MailTransportAkonadi/mailtransportakonadi/dispatchmodeattribute.h
-/usr/include/KPim5/MailTransportAkonadi/mailtransportakonadi/errorattribute.h
-/usr/include/KPim5/MailTransportAkonadi/mailtransportakonadi/mailtransportakonadi_export.h
-/usr/include/KPim5/MailTransportAkonadi/mailtransportakonadi/messagequeuejob.h
-/usr/include/KPim5/MailTransportAkonadi/mailtransportakonadi/sentactionattribute.h
-/usr/include/KPim5/MailTransportAkonadi/mailtransportakonadi/sentbehaviourattribute.h
-/usr/include/KPim5/MailTransportAkonadi/mailtransportakonadi/transportattribute.h
-/usr/include/KPim5/MailTransportAkonadi/mailtransportakonadi_version.h
 /usr/lib64/cmake/KF5MailTransport/KF5MailTransportConfig.cmake
 /usr/lib64/cmake/KF5MailTransport/KF5MailTransportConfigVersion.cmake
 /usr/lib64/cmake/KF5MailTransport/KPim5MailTransportTargets-relwithdebinfo.cmake
 /usr/lib64/cmake/KF5MailTransport/KPim5MailTransportTargets.cmake
-/usr/lib64/cmake/KF5MailTransportAkonadi/KF5MailTransportAkonadiConfig.cmake
-/usr/lib64/cmake/KF5MailTransportAkonadi/KF5MailTransportAkonadiConfigVersion.cmake
-/usr/lib64/cmake/KF5MailTransportAkonadi/KPim5MailTransportAkonadiTargets-relwithdebinfo.cmake
-/usr/lib64/cmake/KF5MailTransportAkonadi/KPim5MailTransportAkonadiTargets.cmake
 /usr/lib64/cmake/KPim5MailTransport/KPim5MailTransportConfig.cmake
 /usr/lib64/cmake/KPim5MailTransport/KPim5MailTransportConfigVersion.cmake
 /usr/lib64/cmake/KPim5MailTransport/KPim5MailTransportTargets-relwithdebinfo.cmake
 /usr/lib64/cmake/KPim5MailTransport/KPim5MailTransportTargets.cmake
-/usr/lib64/cmake/KPim5MailTransportAkonadi/KPim5MailTransportAkonadiConfig.cmake
-/usr/lib64/cmake/KPim5MailTransportAkonadi/KPim5MailTransportAkonadiConfigVersion.cmake
-/usr/lib64/cmake/KPim5MailTransportAkonadi/KPim5MailTransportAkonadiTargets-relwithdebinfo.cmake
-/usr/lib64/cmake/KPim5MailTransportAkonadi/KPim5MailTransportAkonadiTargets.cmake
 /usr/lib64/libKPim5MailTransport.so
-/usr/lib64/libKPim5MailTransportAkonadi.so
 /usr/lib64/qt5/mkspecs/modules/qt_KMailTransport.pri
-/usr/lib64/qt5/mkspecs/modules/qt_KMailTransportAkonadi.pri
 
 %files lib
 %defattr(-,root,root,-)
-/V3/usr/lib64/libKPim5MailTransport.so.5.23.3
-/V3/usr/lib64/libKPim5MailTransportAkonadi.so.5.23.3
-/V3/usr/lib64/qt5/plugins/kcm_mailtransport.so
-/V3/usr/lib64/qt5/plugins/pim5/mailtransport/mailtransport_akonadiplugin.so
+/V3/usr/lib64/libKPim5MailTransport.so.5.24.0
 /V3/usr/lib64/qt5/plugins/pim5/mailtransport/mailtransport_smtpplugin.so
 /usr/lib64/libKPim5MailTransport.so.5
-/usr/lib64/libKPim5MailTransport.so.5.23.3
-/usr/lib64/libKPim5MailTransportAkonadi.so.5
-/usr/lib64/libKPim5MailTransportAkonadi.so.5.23.3
-/usr/lib64/qt5/plugins/kcm_mailtransport.so
-/usr/lib64/qt5/plugins/pim5/mailtransport/mailtransport_akonadiplugin.so
+/usr/lib64/libKPim5MailTransport.so.5.24.0
 /usr/lib64/qt5/plugins/pim5/mailtransport/mailtransport_smtpplugin.so
 
 %files license
